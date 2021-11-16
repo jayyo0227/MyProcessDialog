@@ -26,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
             Log.d("showDialog", "ePDA:" + ePDA.getText().toString());
             Log.d("showDialog", "ePDT:" + ePDT.getText().toString());
 
+            String inputText = getString(R.string.loading);
+
             int inputMax = 100;
             int inputProcess = 1;
             boolean useProcessBar = false;
 
+            if (!ePDT.getText().toString().trim().equals("")) {
+                inputText = ePDT.getText().toString();
+            }
             if (!ePDM.getText().toString().trim().equals("")) {
                 inputMax = Integer.parseInt(ePDM.getText().toString());
                 useProcessBar = true;
@@ -39,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 useProcessBar = true;
             }
 
+            /*如果都沒有輸入，仍然要會顯示，而且只要有改變文字，就要顯示改變後的文字*/
+            MyProcessDialog.showMessage(inputText);
             if (useProcessBar) {
                 MyProcessDialog.showProgressBar(inputMax);
 
@@ -59,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
                     MyProcessDialog.dismiss();
                 }).start();
             } else {
-                MyProcessDialog.showMessage(ePDT.getText().toString());
-
                 new Thread(() -> {
                     try {
                         Thread.sleep(5 * 1000);//Dialog 開啟後，暫停 5秒，再關閉 Dialog

@@ -43,9 +43,7 @@ public class MyProcessDialog {
     public static void showMessage(String strText) {
         circular.setVisibility(View.VISIBLE);
         bar.setVisibility(View.GONE);
-        if (!strText.equals("")) {
-            t001.setText(strText);  //寫成區域變數的話，文字不會跟著變
-        }
+        t001.setText(strText);  //寫成區域變數的話，文字不會跟著變
         myAlertDialog.show();
     }
 
