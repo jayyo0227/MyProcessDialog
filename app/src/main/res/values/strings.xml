@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyProcessDialog</string>
+    <string name="loading">請稍後……</string>
+    <string name="inputMax">請輸入最大值</string>
+    <string name="inputAdd">請輸入每次跳轉進度</string>
+    <string name="inputText">請輸入顯示文字</string>
+    <string name="show_dialog">show dialog</string>
+</resources>
